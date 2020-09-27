@@ -46,3 +46,28 @@ body{
     flex-direction: column;
     align-items: center;
 }
+
+.green {
+    background-color: green;
+}
+
+
+.red {
+    background-color: red;
+}
+
+.white {
+    background-color: white;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange;
+}
