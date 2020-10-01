@@ -22,11 +22,14 @@ class Face {
     }
     
     rotateCV() {
-        let prevBlockColors = this.blocks.map((block) => block.color); 
         
+        
+
+        
+        let prevBlockColors = this.blocks.map((block) => block.color); 
         console.log("this is prevBlocks:");
         console.log(prevBlockColors);
-        
+
         this.blockInPosition(2).color = prevBlockColors[3]
         this.blockInPosition(1).color = prevBlockColors[6]
         this.blockInPosition(3).color = prevBlockColors[0]
@@ -35,7 +38,11 @@ class Face {
         this.blockInPosition(7).color = prevBlockColors[8]
         this.blockInPosition(8).color = prevBlockColors[5]
         this.blockInPosition(9).color = prevBlockColors[2]
-        
+
+        console.log("this is prevBlocks:");
+        console.log(prevBlockColors);
+
+        updateColors();
         // (4) 3
         // (7) 6
         // (1) 0
@@ -93,6 +100,7 @@ let faceDivs = document.querySelectorAll(".face");
 // }
 
 updateColors();
+
 faceDivs.forEach((faceDiv, index) => {
     faceDiv.setAttribute("id", index + 1)
     faceDiv.addEventListener("click", function(e){
@@ -105,6 +113,20 @@ function updateColors() {
     faceDivs.forEach((faceDiv, index) => {
         let faceNumber = index + 1;
         let faceDivBlocks= [...faceDiv.children]
-        faceDivBlocks.forEach((block, blockIndex)=> block.classList.add(game.faceInPosition(faceNumber).blockInPosition(blockIndex+1).color))
+        faceDivBlocks.forEach((block, blockIndex)=> {
+            block.className = '';
+            block.classList.add('block',game.faceInPosition(faceNumber).blockInPosition(blockIndex+1).color)
+        })
     });
 }
+
+game.faceInPosition(1).blockInPosition(1).color = 'white'
+game.faceInPosition(1).blockInPosition(2).color = 'blue'
+game.faceInPosition(1).blockInPosition(3).color = "yellow"
+game.faceInPosition(1).blockInPosition(4).color = "green"
+game.faceInPosition(1).blockInPosition(6).color = "red"
+game.faceInPosition(1).blockInPosition(7).color = "orange"
+game.faceInPosition(1).blockInPosition(8).color = "orange"
+game.faceInPosition(1).blockInPosition(9).color = 'blue'
+
+updateColors();
