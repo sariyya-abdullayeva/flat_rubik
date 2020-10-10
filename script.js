@@ -13,9 +13,9 @@ class Game {
         for (let i = 0; i < rotate_count; i++) {
             let randomFaceNumber = Math.floor(Math.random() * Math.floor(5))+1;
             this.faceInPosition(randomFaceNumber).rotateCV()
-            this.stepHistory.push(randomFaceNumber)
         }
     }
+    
 }
 
 class Face {
@@ -32,20 +32,17 @@ class Face {
     
     rotateCV() {
         let prevBlockColors = this.blocks.map((block) => block.color); 
-        console.log("this is prevBlocks:");
-        console.log(prevBlockColors);
         
-        this.blockInPosition(2).color = prevBlockColors[3]
-        this.blockInPosition(1).color = prevBlockColors[6]
-        this.blockInPosition(3).color = prevBlockColors[0]
-        this.blockInPosition(4).color = prevBlockColors[7]
-        this.blockInPosition(6).color = prevBlockColors[1]
-        this.blockInPosition(7).color = prevBlockColors[8]
-        this.blockInPosition(8).color = prevBlockColors[5]
-        this.blockInPosition(9).color = prevBlockColors[2]
+        this.blockInPosition(2).color = prevBlockColors[3] //4
+        this.blockInPosition(1).color = prevBlockColors[6] //5
+        this.blockInPosition(3).color = prevBlockColors[0] //1
+        this.blockInPosition(4).color = prevBlockColors[7] //8
+        this.blockInPosition(6).color = prevBlockColors[1] //2
+        this.blockInPosition(7).color = prevBlockColors[8] //9
+        this.blockInPosition(8).color = prevBlockColors[5] //6
+        this.blockInPosition(9).color = prevBlockColors[2] //3
         
         let tempLastSideColors = this.sides[3].blocks.map(block => block.color)
-        console.log(tempLastSideColors);
         for (let i = this.sides.length-1; i > 0; i--) {
             this.sides[i].blocks.forEach((block, blockIndex) => {
                 block.color = this.sides[i-1].blocks[blockIndex].color 
@@ -54,10 +51,35 @@ class Face {
         this.sides[0].blocks.forEach((block, blockIndex) => {
             block.color = tempLastSideColors[blockIndex]
         });
+
+        this.game.stepHistory.push(new Step(this.position, true));
         
-        console.log("this is prevBlocks:");
-        console.log(prevBlockColors);
+        updateColors();
+    }
+
+    rotateCounterCV() {
+        let prevBlockColors = this.blocks.map((block) => block.color); 
         
+        this.blockInPosition(2).color = prevBlockColors[5] //6
+        this.blockInPosition(1).color = prevBlockColors[2] //3
+        this.blockInPosition(3).color = prevBlockColors[8] //9
+        this.blockInPosition(4).color = prevBlockColors[1] //2
+        this.blockInPosition(6).color = prevBlockColors[7] //8
+        this.blockInPosition(7).color = prevBlockColors[0] //1
+        this.blockInPosition(8).color = prevBlockColors[3] //4
+        this.blockInPosition(9).color = prevBlockColors[6] //7
+        
+        let tempFirstSideColors = this.sides[0].blocks.map(block => block.color)
+        for (let i = 0; i < this.sides.length-1; i++) {
+            this.sides[i].blocks.forEach((block, blockIndex) => {
+                block.color = this.sides[i+1].blocks[blockIndex].color 
+            });
+        }
+        this.sides[3].blocks.forEach((block, blockIndex) => {
+            block.color = tempFirstSideColors[blockIndex]
+        });
+        
+        this.game.stepHistory.push(new Step(this.position, false));
         updateColors();
         
     }
@@ -77,7 +99,12 @@ class TripBlock{
     }
 }
 
-
+class Step {
+    constructor (facePos, isRotateCV) {
+        this.facePos = facePos;
+        this.isRotateCV = isRotateCV;
+    }
+}
 
 let colors = ["green", "yellow", "white", "blue", "red", "orange"]
 
@@ -95,11 +122,6 @@ for (let faceIndex = 1; faceIndex <= colors.length; faceIndex++) {
 }
 
 let game = new Game(faces);
-// game.faceInPosition(1).sides = new TripBlock ([game.faceInPosition(2).blockInPosition(1), game.faceInPosition(2).blockInPosition(4), game.faceInPosition(2).blockInPosition(7)])
-
-
-
-console.log(game)
 let faceDivs = document.querySelectorAll(".face");
 
 updateColors();
@@ -107,7 +129,12 @@ updateColors();
 faceDivs.forEach((faceDiv, index) => {
     faceDiv.setAttribute("id", index + 1)
     faceDiv.addEventListener("click", function(e){
-        game.faceInPosition(index + 1).rotateCV();
+        if (e.shiftKey) {
+            game.faceInPosition(index + 1).rotateCounterCV();
+        } else {
+            game.faceInPosition(index + 1).rotateCV();
+        }
+        
     });
 });
 
@@ -186,23 +213,17 @@ for (let facePos in sidesObj){
 }
 
 let buttonShuffle = document.querySelector('button')
-console.log(buttonShuffle);
 
 buttonShuffle.addEventListener("click", function(e){
     game.shuffle(3)
+
 });
 
 
 
 
-
-
-
-
-
-
-
-
+// this a temporary code for prototype testing. TODO: remove later
+{
 // game.faceInPosition(1).blockInPosition(1).color = 'white'
 // game.faceInPosition(1).blockInPosition(2).color = 'blue'
 // game.faceInPosition(1).blockInPosition(3).color = "yellow"
@@ -262,5 +283,6 @@ buttonShuffle.addEventListener("click", function(e){
 // game.faceInPosition(6).blockInPosition(7).color = 'yellow'
 // game.faceInPosition(6).blockInPosition(8).color = "green"
 // game.faceInPosition(6).blockInPosition(9).color = 'red'
+}
 
 updateColors();
