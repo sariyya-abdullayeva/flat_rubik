@@ -13,9 +13,18 @@ class Game {
         for (let i = 0; i < rotate_count; i++) {
             let randomFaceNumber = Math.floor(Math.random() * Math.floor(5))+1;
             this.faceInPosition(randomFaceNumber).rotateCV()
+            game.stepHistory.push(new Step(randomFaceNumber, true));
         }
     }
-    
+
+    stepBack() {
+        let lastStep = this.stepHistory.pop();
+        if (lastStep.isRotateCV){
+            this.faceInPosition(lastStep.facePos).rotateCounterCV()
+        } else {
+            this.faceInPosition(lastStep.facePos).rotateCV()
+        }
+    }
 }
 
 class Face {
@@ -51,8 +60,6 @@ class Face {
         this.sides[0].blocks.forEach((block, blockIndex) => {
             block.color = tempLastSideColors[blockIndex]
         });
-
-        this.game.stepHistory.push(new Step(this.position, true));
         
         updateColors();
     }
@@ -78,10 +85,8 @@ class Face {
         this.sides[3].blocks.forEach((block, blockIndex) => {
             block.color = tempFirstSideColors[blockIndex]
         });
-        
-        this.game.stepHistory.push(new Step(this.position, false));
+
         updateColors();
-        
     }
 }
 
@@ -126,13 +131,17 @@ let faceDivs = document.querySelectorAll(".face");
 
 updateColors();
 
+
+// Add eventListeners
 faceDivs.forEach((faceDiv, index) => {
     faceDiv.setAttribute("id", index + 1)
     faceDiv.addEventListener("click", function(e){
         if (e.shiftKey) {
             game.faceInPosition(index + 1).rotateCounterCV();
+            game.stepHistory.push(new Step(index + 1, false));
         } else {
             game.faceInPosition(index + 1).rotateCV();
+            game.stepHistory.push(new Step(index + 1, true));
         }
         
     });
