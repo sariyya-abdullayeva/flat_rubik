@@ -25,6 +25,17 @@ class Game {
             this.faceInPosition(lastStep.facePos).rotateCV()
         }
     }
+
+    solve() {
+        while (this.stepHistory.length > 0) {
+            let lastStep = this.stepHistory.pop();
+            if (lastStep.isRotateCV){
+                this.faceInPosition(lastStep.facePos).rotateCounterCV()
+            } else {
+                this.faceInPosition(lastStep.facePos).rotateCV()
+            }
+        }
+    }
 }
 
 class Face {
