@@ -1,33 +1,15 @@
 body{
     padding: 0;
     margin: 0;
+    font-size: 1.125rem;
+    box-sizing: border-box;
 }
 
 .wrapper{
     margin: 0 auto;
     border: 2px solid black;
     width: 50%;
-    height: 800px;
-}
-
-.face{
-    width: 9rem;
-    height: 9rem;
-    border: 2px solid black;
-    background-color: black;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 5%;
-
-}
-
-.block{
-    width: 30%;
-    height: 30%;
-    border: 1px solid black;
-    border-radius: 10%;
+    height: 100vw;
 }
 
 .flex{
@@ -37,14 +19,34 @@ body{
     width: 90%;
 }
 
-.row{
-    margin-top: 30px;
-}
-
 .column {
     flex-direction: column;
     align-items: center;
 }
+
+
+
+.face{
+    width: 10vw;
+    height: 10vw;
+    border: 2px solid black;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5%;
+}
+
+
+
+.block{
+    width: 25%;
+    height: 25%;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
 
 .green {
     background-color: green;
