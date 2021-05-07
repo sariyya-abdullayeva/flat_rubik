@@ -237,11 +237,11 @@ buttonShuffle.addEventListener("click", function (e) {
     game.shuffle(3)
 });
 
-// //back button
-// let buttonBack = document.querySelector('.back');
-// buttonBack.addEventListener("click", function (e) {
-//     game.stepBack()
-// });
+//back button
+let buttonBack = document.querySelector('.back');
+buttonBack.addEventListener("click", function (e) {
+    game.stepBack()
+});
 
 
 
