@@ -11,7 +11,7 @@ class Game {
 
     shuffle(rotate_count) {
         for (let i = 0; i < rotate_count; i++) {
-            let randomFaceNumber = Math.floor(Math.random() * Math.floor(5))+1;
+            let randomFaceNumber = Math.ceil(Math.random() * 5) + 1;
             this.faceInPosition(randomFaceNumber).rotateCV()
             game.stepHistory.push(new Step(randomFaceNumber, true));
         }
