@@ -243,6 +243,11 @@ buttonBack.addEventListener("click", function (e) {
     game.stepBack()
 });
 
+//solve button
+let buttonSolve = document.querySelector('.solve');
+buttonSolve.addEventListener("click", function (e) {
+    game.solve()
+});
 
 
 // this a temporary code for prototype testing. TODO: remove later
