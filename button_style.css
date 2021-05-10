@@ -1,0 +1,31 @@
+.btn{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    /* !!!! it is important to have button position relative to achive pressing effect !!! */
+    position: relative;
+    background-color: #fcad26;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: 200;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* width:; */
+    /* margin: 10%; */
+    padding: 1.1em;
+    border-radius: 20px;
+    box-shadow: 0 6px #efa424;
+}
+
+.btn:hover{
+    box-shadow: 0 4px #efa424;
+    /* this is because of the relative postion, top will shift 2px down */
+    top: 2px;
+}
+
+.btn:active{
+    box-shadow: none;
+    top: 6px;
+}

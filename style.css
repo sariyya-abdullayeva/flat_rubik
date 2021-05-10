@@ -1,16 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,300&display=swap');
+
 body{
     padding: 0;
     margin: 0;
-    font-size: 1.125rem;
+    font-family: 'Montserrat', sans-serif;    font-size: 1.125rem;
     box-sizing: border-box;
+/* glass background*/
+    background-attachment: fixed;
+    background-image: url(assets/pexels-mikhail-nilov-7828071.jpg);
+    background-size:cover;
 }
 
 .wrapper{
-    margin: 20px auto;
-    border: 2px solid black;
-    width: 50%;
-    height: 45vw;
-    padding-top:1.5rem;
+    /* margin: auto auto; */
+    border-radius: 10px;
+    width: 60%;
+    height: 60vw;
+    padding-top:1.2rem;
+    box-sizing: border-box;
+    /* glass background*/
+    box-shadow: 0 0 1.2rem 0 rgba(0, 0, 0, .2); 
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+}
+
+/* glass background */
+.wrapper:before{
+    content:'';
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 2000px rgba(10, 0, 0, 0.644);
+    filter: blur(10px);
+    margin: -20px;
 }
 
 .flex{
@@ -76,23 +104,27 @@ body{
 
 /* BUTTON STYLING */
 
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn{
-    outline: none;
+    outline:none;
     border: none;
     cursor: pointer;
     display: block;
-    /* !!!! it is important to have button position relative to achive pressing effect !!! */
     position: relative;
-    background-color: #fcad26;
-    font-size: 16px;
-    font-weight: 300px;
-    color: white;
+    margin: 10px auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding: 25px 80px;
-    margin: 20px  auto;
-    border-radius: 20px;
-    box-shadow: 0 6px #efa424;
+    padding: 10px 5px;
+    border-radius: 0.25rem;
+    background-color: #fcad26;
+    box-shadow: 0 6px blueviolet;
+
 }
 
 .btn:hover{
