@@ -1,0 +1,118 @@
+*,::before,::after
+{   padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1.125rem;
+}
+
+main{
+ height: 100vh;
+ min-height: 100vh;
+ background: linear-gradient( to right top, #65dfc9, #6cdbeb);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+/* glass container */
+.wrapper{
+    background: white;
+    min-height: 80vh;
+    width: 60%;
+    background: linear-gradient(to right bottom, rgba(255,255, 255, 0.6), rgba(255,255, 255, 0.2));
+    border-radius: 1.2rem;
+    z-index: 2;
+    backdrop-filter: blur(1.5rem);
+}
+
+/* Cube container */
+.big-cube-container{
+    /* background-color: ivory; */
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    position: absolute;
+    top:5%;
+    right:15%;
+    margin: 100px auto 0;
+}
+
+.small-cube-container{
+    width: 100px;
+    height: 100px;
+    perspective: 10000px;
+    position: absolute;
+    bottom: 5%;
+    left:20%;
+    margin: 100px auto 0;
+}
+
+
+.cube{
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: spin 5s infinite linear;
+}
+
+
+.side{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient( 45deg, rgba(87, 53, 211, 0.651), rgba(255, 166, 0, 0.788) );
+}
+
+
+.big-top {
+    transform: rotateX(90deg) translateZ(100px);
+  }
+  .big-bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+  }
+  
+  .big-right { 
+    transform: rotateY(90deg) translateZ(100px);
+  }
+  .big-left {
+    transform: rotateY(-90deg) translateZ(100px);
+  }
+  
+  .big-front {
+    transform: rotateX(0deg) translateZ(100px);
+  }
+  .big-back {
+    transform: rotateX(-180deg) translateZ(100px);
+  }
+
+
+
+  .small-top {
+    transform: rotateX(90deg) translateZ(50px);
+  }
+  .small-bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+  }
+  
+  .small-right { 
+    transform: rotateY(90deg) translateZ(50px);
+  }
+  .small-left {
+    transform: rotateY(-90deg) translateZ(50px);
+  }
+  
+  .small-front {
+    transform: rotateX(0deg) translateZ(50px);
+  }
+  .small-back {
+    transform: rotateX(-180deg) translateZ(50px);
+  }
+
+@keyframes spin {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
