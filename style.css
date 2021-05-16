@@ -3,7 +3,8 @@
 body{
     padding: 0;
     margin: 0;
-    font-family: 'Montserrat', sans-serif;    font-size: 1.125rem;
+    font-family: 'Montserrat', sans-serif;  
+      font-size: 1.125rem;
     box-sizing: border-box;
 /* glass background*/
     background-attachment: fixed;

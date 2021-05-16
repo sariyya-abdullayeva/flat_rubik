@@ -4,101 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>2D RUBICS</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="second_style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,300&display=swap"
         rel="stylesheet"> -->
 </head>
 
 <body>
-    <div class="wrapper">
-        <div>
-            <div class="flex row">
-                <div class="face">
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
+    <main>
+        <div class="wrapper">
+            <div>
+                <div class="flex row">
+                    <div class="face">
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                    </div>
+                    <div class="face">
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                    </div>
+                    <div class="face">
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                    </div>
                 </div>
-                <div class="face">
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                </div>
-                <div class="face">
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
+                <div class="flex column">
+                    <div class="face">
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                    </div>
+                    <div class="face">
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                    </div>
+                    <div class="face">
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                    </div>
                 </div>
             </div>
-            <div class="flex column">
-                <div class="face">
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                </div>
-                <div class="face">
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                </div>
-                <div class="face">
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                    <div class="block"></div>
-                </div>
-            </div>
+
+            <!-- <div class="buttons">
+                <button class="btn shuffle">shuffle</button>
+                <button class="btn back"> back </button>
+                <button class="btn solve">solve</button>
+            </div> -->
         </div>
+    </main>
 
-        <div class="buttons">
-            <button class="btn shuffle">shuffle</button>
-            <button class="btn back"> back </button>
-            <button class="btn solve">solve</button>
-            <!-- <div class="test">testttt</div>
-            <div class="test">testtt</div>
-            <div class="test">test</div>
-            <div class="test">testt</div> -->
-
+    <div class="big-cube-container">
+        <div class="cube">
+            <div class="side big-front"></div>
+            <div class="side big-back"></div>
+            <div class="side big-right"></div>
+            <div class="side big-left"></div>
+            <div class="side big-top"></div>
+            <div class="side big-bottom"></div>
         </div>
     </div>
 
-
+    <div class="small-cube-container">
+        <div class="cube">
+            <div class="side small-front"></div>
+            <div class="side small-back"></div>
+            <div class="side small-right"></div>
+            <div class="side small-left"></div>
+            <div class="side small-top"></div>
+            <div class="side small-bottom"></div>
+        </div>
+    </div>
 
     <!-- JS SCRIPT -->
     <script src="script.js"></script>
